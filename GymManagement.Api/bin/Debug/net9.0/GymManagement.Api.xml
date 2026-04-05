@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GymManagement.Api</name>
+    </assembly>
+    <members>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.GetClients">
+            <summary>
+            Returns a complete list of all registered gym clients.
+            </summary>
+            <returns>A list of clients with their IDs, names, and current plans.</returns>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.CreateClient(GymManagement.Api.Dtos.CreateClientDto)">
+            <summary>
+            Registers a new client in the gym management system.
+            </summary>
+            <param name="clientDto">The data required to create a new client profile.</param>
+            <response code="201">Returns the newly created client with its assigned ID.</response>
+            <response code="400">If the provided data is invalid (e.g., empty name).</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.GetClient(System.Guid)">
+            <summary>
+            Retrieves details for a specific client by their unique ID.
+            </summary>
+            <param name="id">The unique integer identifier of the client.</param>
+            <response code="200">Returns the requested client data.</response>
+            <response code="404">If a client with the specified ID was not found in the database.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.DeleteClient(System.Guid)">
+            <summary>
+            Permanently removes a client from the system.
+            </summary>
+            <param name="id">The ID of the client to be deleted.</param>
+            <response code="204">The client was successfully deleted. No content is returned.</response>
+            <response code="404">If the client does not exist.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.UpdateClient(System.Guid,GymManagement.Api.Dtos.UpdateClientDto)">
+            <summary>
+            Updates an existing client's information.
+            </summary>
+            <response code="200">Returns the updated client.</response>
+            <response code="404">If the client was not found.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.TrainersController.GetTrainers">
+            <summary>
+            Returns a list of all registered gym trainers.
+            </summary>
+            <returns>A collection of trainer response objects.</returns>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.TrainersController.CreateTrainer(GymManagement.Api.Dtos.Trainers.CreateTrainerDto)">
+            <summary>
+            Creates a new trainer profile in the system.
+            </summary>
+            <param name="trainerDto">The trainer data (name, specialization).</param>
+            <response code="201">Returns the newly created trainer profile.</response>
+            <response code="400">If the provided data is invalid.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.TrainersController.UpdateTrainer(System.Guid,GymManagement.Api.Dtos.Trainers.UpdateTrainerDto)">
+            <summary>
+            Updates an existing trainer's information.
+            </summary>
+            <param name="id">The unique identifier (GUID) of the trainer.</param>
+            <param name="trainerDto">The updated data for the trainer.</param>
+            <returns>No content if successful, or Not Found if the ID doesn't exist.</returns>
+            <response code="204">Trainer successfully updated.</response>
+            <response code="404">Trainer with the given ID was not found.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.TrainersController.DeleteTrainer(System.Guid)">
+            <summary>
+            Deletes a trainer from the system.
+            </summary>
+            <param name="id">The unique identifier (GUID) of the trainer to delete.</param>
+            <response code="204">Trainer successfully deleted.</response>
+            <response code="404">Trainer not found.</response>
+        </member>
+        <member name="T:GymManagement.Api.Migrations.InitialWithGuid">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.InitialWithGuid.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.InitialWithGuid.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.InitialWithGuid.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.UpdateModelsWithEmailAndSplitNames">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmailAndSplitNames.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmailAndSplitNames.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmailAndSplitNames.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.UpdateModelsWithEmail">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmail.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmail.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.UpdateModelsWithEmail.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.AddTrainerToClient">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerToClient.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerToClient.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerToClient.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
