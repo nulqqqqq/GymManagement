@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FluentValidation;
 using GymManagement.Api.Dtos.Trainers;
 

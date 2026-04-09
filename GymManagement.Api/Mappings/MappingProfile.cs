@@ -1,6 +1,7 @@
 using AutoMapper;
 using GymManagement.Api.Dtos;
 using GymManagement.Api.Dtos.Trainers;
+using GymManagement.Api.Dtos.WorkoutSessions;
 using GymManagement.Api.Models;
 
 namespace GymManagement.Api.Mappings;
@@ -16,5 +17,14 @@ public class MappingProfile : Profile
         CreateMap<UpdateClientDto, Client>();
         CreateMap<CreateTrainerDto, Trainer>();
         CreateMap<Trainer, TrainerResponseDto>();
+        // --- Workout Sessions ---
+        // Из базы -> пользователю
+        CreateMap<WorkoutSession, WorkoutSessionResponseDto>();
+
+        // От пользователя -> в базу (Создание)
+        CreateMap<CreateWorkoutSessionDto, WorkoutSession>();
+
+        // От пользователя -> в базу (Обновление)
+        CreateMap<UpdateWorkoutSessionDto, WorkoutSession>();
     }
 }

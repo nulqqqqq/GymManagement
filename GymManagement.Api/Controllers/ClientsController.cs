@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GymManagement.Api.Dtos;
 using GymManagement.Api.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace GymManagement.Api.Controllers;
 
@@ -39,7 +43,10 @@ public class ClientsController : ControllerBase
     public async Task<IActionResult> CreateClient([FromBody] CreateClientDto clientDto)
     {
         var result = await _clientService.CreateClientAsync(clientDto);
-        return Ok(new { Message = "Client created successfully.", Data = result });
+        return CreatedAtAction(
+            nameof(GetClient),
+            new { id = result.Id },
+            new { message = "Client created succussfully.", Data = result });
     }
     
     /// <summary>
@@ -93,7 +100,7 @@ public class ClientsController : ControllerBase
     public async Task<IActionResult> UpdateClient(Guid id, [FromBody] UpdateClientDto updateDto)
     {
         var result = await _clientService.UpdateClientAsync(id, updateDto);
-        if (result == null)
+        if (!result)
         {
             return NotFound($"Client with ID{id} not found.");
         }

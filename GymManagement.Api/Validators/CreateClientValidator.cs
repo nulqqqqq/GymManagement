@@ -7,7 +7,7 @@ public class CreateClientValidator: AbstractValidator<CreateClientDto>
 {
     public CreateClientValidator()
     {
-        RuleFor(x => x.FistName)
+        RuleFor(x => x.FirstName)
             .NotEmpty().WithMessage("FistName cannot be empty")
             .MinimumLength(2).WithMessage("FistName must be at least 2 characters long")
             .MaximumLength(50).WithMessage("FistName is too long");

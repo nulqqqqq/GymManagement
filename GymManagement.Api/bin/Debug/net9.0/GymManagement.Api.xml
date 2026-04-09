@@ -121,5 +121,53 @@
         <member name="M:GymManagement.Api.Migrations.AddTrainerToClient.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:GymManagement.Api.Migrations.AddTrainerClientsRelation">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerClientsRelation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerClientsRelation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddTrainerClientsRelation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.AddWorkoutSessionEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddWorkoutSessionEntity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddWorkoutSessionEntity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddWorkoutSessionEntity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.FixWorkoutSessionColumns">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.FixWorkoutSessionColumns.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.FixWorkoutSessionColumns.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.FixWorkoutSessionColumns.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.AddDateToWorkoutSessions">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddDateToWorkoutSessions.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddDateToWorkoutSessions.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddDateToWorkoutSessions.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

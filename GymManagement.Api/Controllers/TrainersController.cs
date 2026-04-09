@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using GymManagement.Api.Dtos.Trainers;
 using GymManagement.Api.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagement.Api.Controllers;
@@ -39,7 +43,8 @@ public class TrainersController : ControllerBase
     public async Task<IActionResult> CreateTrainer([FromBody]CreateTrainerDto trainerDto)
     {
         var result = await _trainerService.CreateTrainerAsync(trainerDto);
-        return Ok(new { Message = $"Trainer created successfully.", Data = result });
+        return CreatedAtAction(nameof(GetTrainers), new { id = result.Id }, 
+            new { Message = "Trainer created successfully.", Data = result });
     }
 
     /// <summary>
@@ -56,11 +61,8 @@ public class TrainersController : ControllerBase
     public async Task<IActionResult> UpdateTrainer(Guid id, UpdateTrainerDto trainerDto)
     {
         var result = await _trainerService.UpdateTrainerAsync(id, trainerDto);
-        if (!result)
-        {
-            return NotFound();
-        }
-
+        if (!result) return NotFound();  
+        
         return NoContent();
     }
     

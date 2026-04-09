@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace GymManagement.Api.Models;
 
 public class Client
@@ -10,4 +14,5 @@ public class Client
     public DateTime CreatedAt { get; set; }
     public Guid TrainerId { get; set; }
     public Trainer? Trainer { get; set; }
+    public ICollection<WorkoutSession> WorkoutSessions { get; set; } = new List<WorkoutSession>();
 }

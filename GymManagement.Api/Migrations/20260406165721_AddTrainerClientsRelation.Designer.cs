@@ -3,6 +3,7 @@ using System;
 using GymManagement.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GymManagement.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260406165721_AddTrainerClientsRelation")]
+    partial class AddTrainerClientsRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,37 +90,6 @@ namespace GymManagement.Api.Migrations
                     b.ToTable("Trainers");
                 });
 
-            modelBuilder.Entity("GymManagement.Api.Models.WorkoutSession", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("DurationInMinutes")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("TrainerId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("TrainerId");
-
-                    b.ToTable("WorkoutSessions");
-                });
-
             modelBuilder.Entity("GymManagement.Api.Models.Client", b =>
                 {
                     b.HasOne("GymManagement.Api.Models.Trainer", "Trainer")
@@ -129,35 +101,9 @@ namespace GymManagement.Api.Migrations
                     b.Navigation("Trainer");
                 });
 
-            modelBuilder.Entity("GymManagement.Api.Models.WorkoutSession", b =>
-                {
-                    b.HasOne("GymManagement.Api.Models.Client", "Client")
-                        .WithMany("WorkoutSessions")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GymManagement.Api.Models.Trainer", "Trainer")
-                        .WithMany("WorkoutSessions")
-                        .HasForeignKey("TrainerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-
-                    b.Navigation("Trainer");
-                });
-
-            modelBuilder.Entity("GymManagement.Api.Models.Client", b =>
-                {
-                    b.Navigation("WorkoutSessions");
-                });
-
             modelBuilder.Entity("GymManagement.Api.Models.Trainer", b =>
                 {
                     b.Navigation("Clients");
-
-                    b.Navigation("WorkoutSessions");
                 });
 #pragma warning restore 612, 618
         }

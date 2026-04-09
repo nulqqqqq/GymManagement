@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
 using GymManagement.Api.Dtos;
@@ -60,7 +63,8 @@ public class ClientService : IClientService
 
     public async Task<bool> UpdateClientAsync(Guid id, UpdateClientDto updateDto)
     {
-        if (updateDto.TrainerId != null && !await _context.Trainers.AnyAsync(t => t.Id == updateDto.TrainerId)) return false;
+        if (updateDto.TrainerId != null && !await _context.Trainers.AnyAsync(t => t.Id == updateDto.TrainerId)) 
+            return false;
         var client = await _context.Clients.FindAsync(id);
         
         if (client == null) return false;

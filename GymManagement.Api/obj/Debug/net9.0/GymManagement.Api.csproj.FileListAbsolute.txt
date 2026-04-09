@@ -138,3 +138,4 @@
 /Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/Debug/net9.0/GymManagement.Api.pdb
 /Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/Debug/net9.0/GymManagement.Api.genruntimeconfig.cache
 /Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/Debug/net9.0/ref/GymManagement.Api.dll
+/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/Debug/net9.0/GymManagement.Api.sourcelink.json

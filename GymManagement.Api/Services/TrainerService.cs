@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
 using GymManagement.Api.Dtos.Trainers;

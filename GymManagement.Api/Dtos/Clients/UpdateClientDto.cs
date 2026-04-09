@@ -1,3 +1,5 @@
+using System;
+
 namespace GymManagement.Api.Dtos;
 
 public class UpdateClientDto
