@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.Trainers;
 using GymManagement.Api.Interfaces;
 using GymManagement.Api.Models;
@@ -21,9 +22,13 @@ public class TrainerService: ITrainerService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<TrainerResponseDto>> GetAllTrainersAsync()
+    public async Task<IEnumerable<TrainerResponseDto>> GetAllTrainersAsync(PaginationQueryDto queryDto)
     {
-        var trainers = await _context.Trainers.ToListAsync();
+        var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
+        var trainers = await _context.Trainers
+            .Skip(skipAmount)
+            .Take(queryDto.PageSize)
+            .ToListAsync();
         return _mapper.Map<IEnumerable<TrainerResponseDto>>(trainers);
     }
 

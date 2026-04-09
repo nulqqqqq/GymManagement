@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
 using GymManagement.Api.Dtos;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Interfaces;
 using GymManagement.Api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -22,9 +23,12 @@ public class ClientService : IClientService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync()
+    public async Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync(PaginationQueryDto queryDto)
     {
+        var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
         var clients = await _context.Clients
+            .Skip(skipAmount)
+            .Take(queryDto.PageSize)
             .Include(c => c.Trainer)   
             .ToListAsync();
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GymManagement.Api.Dtos;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Interfaces;
 using Microsoft.AspNetCore.Http;
 
@@ -12,7 +13,7 @@ namespace GymManagement.Api.Controllers;
 [Route("api/[controller]")]
 public class ClientsController : ControllerBase
 {
-    public readonly IClientService _clientService;
+    private readonly IClientService _clientService;
 
     public ClientsController(IClientService clientService)
     {
@@ -25,9 +26,9 @@ public class ClientsController : ControllerBase
     /// <returns>A list of clients with their IDs, names, and current plans.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<ClientResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetClients()
+    public async Task<IActionResult> GetClients([FromQuery]PaginationQueryDto query)
     {
-        var clients = await _clientService.GetAllClientsAsync();
+        var clients = await _clientService.GetAllClientsAsync(query);
         return Ok(clients);
     }
     

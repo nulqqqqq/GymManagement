@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.WorkoutSessions;
 using GymManagement.Api.Interfaces;
 using GymManagement.Api.Models;
@@ -23,11 +24,36 @@ public class WorkoutSessionService:IWorkoutSessionService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<WorkoutSessionResponseDto>> GetAllWorkoutSessionsAsync()
+    public async Task<IEnumerable<WorkoutSessionResponseDto>> GetAllWorkoutSessionsAsync(PaginationQueryDto queryDto)
     {
-        var workoutSessions = await _context.WorkoutSessions
+        var query = _context.WorkoutSessions.AsQueryable();
+        if (!string.IsNullOrWhiteSpace(queryDto.Status))
+        {
+            query = query.Where(w => w.Status == queryDto.Status);
+        }
+        
+        if (!string.IsNullOrWhiteSpace(queryDto.SortColumn))
+        {
+            if (queryDto.SortColumn.Equals("date", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(w => w.Date)
+                    : query.OrderBy(w => w.Date);
+            }
+            else if (queryDto.SortColumn.Equals("duration", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(w => w.DurationInMinutes)
+                    : query.OrderBy(w => w.DurationInMinutes);
+            }
+        }
+        var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
+        
+        var workoutSessions = await query
             .Include(w=> w.Client)
             .Include(w => w.Trainer)
+            .Skip(skipAmount)
+            .Take(queryDto.PageSize)
             .ToListAsync();
         
         return _mapper.Map<IEnumerable<WorkoutSessionResponseDto>>(workoutSessions);

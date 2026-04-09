@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.WorkoutSessions;
 using GymManagement.Api.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -22,9 +23,9 @@ public class WorkoutSessionsController:ControllerBase
     
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<WorkoutSessionResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllWorkoutSessions()
+    public async Task<IActionResult> GetAllWorkoutSessions([FromQuery] PaginationQueryDto query)
     {
-        var workoutSessions = await _workoutSessionService.GetAllWorkoutSessionsAsync();
+        var workoutSessions = await _workoutSessionService.GetAllWorkoutSessionsAsync(query);
         return Ok(workoutSessions);
     }
 

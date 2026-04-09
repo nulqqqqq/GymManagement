@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.Trainers;
 using GymManagement.Api.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +13,7 @@ namespace GymManagement.Api.Controllers;
 [Route("api/[controller]")]
 public class TrainersController : ControllerBase
 {
-    public readonly ITrainerService _trainerService;
+    private readonly ITrainerService _trainerService;
 
     public TrainersController(ITrainerService trainerService)
     {
@@ -25,9 +26,9 @@ public class TrainersController : ControllerBase
     /// <returns>A collection of trainer response objects.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<TrainerResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetTrainers()
+    public async Task<IActionResult> GetTrainers([FromQuery]PaginationQueryDto query)
     {
-        var trainers = await _trainerService.GetAllTrainersAsync();
+        var trainers = await _trainerService.GetAllTrainersAsync(query);
         return Ok(trainers);
     }
     

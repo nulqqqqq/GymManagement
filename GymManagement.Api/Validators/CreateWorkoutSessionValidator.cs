@@ -13,7 +13,7 @@ public class CreateWorkoutSessionValidator: AbstractValidator<CreateWorkoutSessi
             .NotEmpty().WithMessage("Date and time are required")
             .GreaterThan(DateTime.UtcNow).WithMessage("You cannot schedule a workout in the past");
         
-        RuleFor(x => x.DurationOnMinutes)
+        RuleFor(c => c.DurationInMinutes)
             .GreaterThan(0).WithMessage("Duration must be greater than 0 minutes.")
             .LessThanOrEqualTo(240).WithMessage("Workout duration cannot exceed 4 hours.");
 
