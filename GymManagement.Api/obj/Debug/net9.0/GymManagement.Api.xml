@@ -169,5 +169,17 @@
         <member name="M:GymManagement.Api.Migrations.AddDateToWorkoutSessions.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:GymManagement.Api.Migrations.AddPhoneToClient">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToClient.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToClient.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToClient.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

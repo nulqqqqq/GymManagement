@@ -26,5 +26,10 @@ public class CreateClientValidator: AbstractValidator<CreateClientDto>
             .NotEmpty().WithMessage("Plan is required")
             .Must(x => x == "Basic" || x == "Premium" || x == "Elite")
             .WithMessage("Please select a valid plan: Basic, Premium or Elite");
+
+        RuleFor(c => c.PhoneNumber)
+            .NotEmpty().WithMessage("hone number is required.")
+            .MinimumLength(10).WithMessage("hone number must be at least 10 characters long.")
+            .MaximumLength(15).WithMessage("Phone number cannot exceed 15 characters.");
     }
 }
