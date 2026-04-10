@@ -24,8 +24,26 @@ public class TrainerService: ITrainerService
 
     public async Task<IEnumerable<TrainerResponseDto>> GetAllTrainersAsync(PaginationQueryDto queryDto)
     {
+        var query = _context.Trainers.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(queryDto.SortColumn))
+        {
+            if (queryDto.SortColumn.Equals("lastName", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.LastName)
+                    : query.OrderBy(t => t.LastName);
+            }
+            else if (queryDto.SortColumn.Equals("firstName", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.FirstName)
+                    : query.OrderBy(t => t.FirstName);
+            }
+        }
+        
         var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
-        var trainers = await _context.Trainers
+        var trainers = await query
             .Skip(skipAmount)
             .Take(queryDto.PageSize)
             .ToListAsync();

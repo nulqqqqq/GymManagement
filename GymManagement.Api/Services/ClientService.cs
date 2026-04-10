@@ -23,10 +23,33 @@ public class ClientService : IClientService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync(PaginationQueryDto queryDto)
+    public async Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync(ClientQueryDto queryDto)
     {
+        var query = _context.Clients.AsQueryable();
+        if (!string.IsNullOrWhiteSpace(queryDto.Plan))
+        {
+            query = query.Where(c => c.Plan == queryDto.Plan);
+        }
+
+        if (!string.IsNullOrWhiteSpace(queryDto.SortColumn))
+        {
+            
+            if (queryDto.SortColumn.Equals("lastName", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc" 
+                    ? query.OrderByDescending(c => c.LastName) 
+                    : query.OrderBy(c => c.LastName);
+            }
+            
+            else if (queryDto.SortColumn.Equals("firstName", StringComparison.OrdinalIgnoreCase))
+            {
+                query = queryDto.SortOrder?.ToLower() == "desc" 
+                    ? query.OrderByDescending(c => c.FirstName) 
+                    : query.OrderBy(c => c.FirstName);
+            }
+        }
         var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
-        var clients = await _context.Clients
+        var clients = await query
             .Skip(skipAmount)
             .Take(queryDto.PageSize)
             .Include(c => c.Trainer)   

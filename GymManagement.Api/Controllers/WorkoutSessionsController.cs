@@ -23,7 +23,7 @@ public class WorkoutSessionsController:ControllerBase
     
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<WorkoutSessionResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllWorkoutSessions([FromQuery] PaginationQueryDto query)
+    public async Task<IActionResult> GetAllWorkoutSessions([FromQuery] WorkoutSessionQueryDto query)
     {
         var workoutSessions = await _workoutSessionService.GetAllWorkoutSessionsAsync(query);
         return Ok(workoutSessions);

@@ -8,7 +8,7 @@ namespace GymManagement.Api.Interfaces;
 
 public interface IClientService
 {
-    Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync(PaginationQueryDto query);
+    Task<IEnumerable<ClientResponseDto>> GetAllClientsAsync(ClientQueryDto query);
     Task<ClientResponseDto?> GetClientByIdAsync(Guid id);
     Task<ClientResponseDto> CreateClientAsync(CreateClientDto createClientDto);
     Task<bool> DeleteClientAsync(Guid id);

@@ -26,7 +26,7 @@ public class ClientsController : ControllerBase
     /// <returns>A list of clients with their IDs, names, and current plans.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<ClientResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetClients([FromQuery]PaginationQueryDto query)
+    public async Task<IActionResult> GetClients([FromQuery]ClientQueryDto query)
     {
         var clients = await _clientService.GetAllClientsAsync(query);
         return Ok(clients);

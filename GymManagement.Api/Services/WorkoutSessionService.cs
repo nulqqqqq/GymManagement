@@ -24,9 +24,10 @@ public class WorkoutSessionService:IWorkoutSessionService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<WorkoutSessionResponseDto>> GetAllWorkoutSessionsAsync(PaginationQueryDto queryDto)
+    public async Task<IEnumerable<WorkoutSessionResponseDto>> GetAllWorkoutSessionsAsync(WorkoutSessionQueryDto queryDto)
     {
         var query = _context.WorkoutSessions.AsQueryable();
+        
         if (!string.IsNullOrWhiteSpace(queryDto.Status))
         {
             query = query.Where(w => w.Status == queryDto.Status);

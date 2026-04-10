@@ -4,7 +4,7 @@
         <name>GymManagement.Api</name>
     </assembly>
     <members>
-        <member name="M:GymManagement.Api.Controllers.ClientsController.GetClients(GymManagement.Api.Dtos.Shared.PaginationQueryDto)">
+        <member name="M:GymManagement.Api.Controllers.ClientsController.GetClients(GymManagement.Api.Dtos.ClientQueryDto)">
             <summary>
             Returns a complete list of all registered gym clients.
             </summary>
