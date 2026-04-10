@@ -181,5 +181,17 @@
         <member name="M:GymManagement.Api.Migrations.AddPhoneToClient.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:GymManagement.Api.Migrations.AddPhoneToTrainer">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToTrainer.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToTrainer.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhoneToTrainer.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

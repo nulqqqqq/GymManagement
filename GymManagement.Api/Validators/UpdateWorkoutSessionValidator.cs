@@ -25,6 +25,8 @@ public class UpdateWorkoutSessionValidator:AbstractValidator<UpdateWorkoutSessio
             .NotEmpty()
             .Must(s => _allowedStatuses.Contains(s))
             .WithMessage($"Please choose a valid status: {string.Join(", ", _allowedStatuses)}");
+        
+        
     
     }
 }

@@ -27,7 +27,7 @@ public class CreateTrainerValidator: AbstractValidator<CreateTrainerDto>
             .NotEmpty().WithMessage("Email cannot be empty")
             .MaximumLength(100).WithMessage("Email is too long")
             .EmailAddress().WithMessage("Invalid email format");
-
+    
         RuleFor(x => x.Specialization)
             .NotEmpty()
             .Must(s => _allowedSpecializations.Contains(s))
