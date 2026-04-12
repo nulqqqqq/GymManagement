@@ -73,6 +73,47 @@
             <response code="204">Trainer successfully deleted.</response>
             <response code="404">Trainer not found.</response>
         </member>
+        <member name="M:GymManagement.Api.Controllers.WorkoutSessionsController.GetAllWorkoutSessions(GymManagement.Api.Dtos.WorkoutSessions.WorkoutSessionQueryDto)">
+            <summary>
+            Retrieves a list of all workout sessions based on filter criteria.
+            </summary>
+            <param name="query">Filter and pagination parameters for workout sessions.</param>
+            <returns>A collection of workout session data transfer objects.</returns>
+            <response code="200">Returns the requested list of sessions.</response> 
+        </member>
+        <member name="M:GymManagement.Api.Controllers.WorkoutSessionsController.CreateWorkoutSession(GymManagement.Api.Dtos.WorkoutSessions.CreateWorkoutSessionDto)">
+            <summary>
+            Creates a new workout session.
+            </summary>
+            <param name="workoutSessionDto">The data required to create a session.</param>
+            <returns>The newly created workout session details.</returns>
+            <response code="201">Session created successfully.</response>
+            <response code="400">Invalid input data provided.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.WorkoutSessionsController.GetWorkoutSession(System.Guid)">
+            <summary>
+            Gets a specific workout session by its unique identifier.
+            </summary>
+            <param name="id">The unique GUID of the workout session.</param>
+            <returns>The details of the requested session.</returns>
+            <response code="200">Session found and returned.</response>
+            <response code="404">Session with the specified ID not found.</response>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.WorkoutSessionsController.UpdateWorkoutSession(System.Guid,GymManagement.Api.Dtos.WorkoutSessions.UpdateWorkoutSessionDto)">
+            <summary>
+            Updates an existing workout session with new information.
+            </summary>
+            <param name="id">The unique GUID of the session to update.</param>
+            <param name="workoutSessionDto">The updated data for the session.</param>
+            <returns>No content if the update was successful.</returns>
+        </member>
+        <member name="M:GymManagement.Api.Controllers.WorkoutSessionsController.DeleteWorkoutSession(System.Guid)">
+            <summary>
+            Removes a workout session from the system.
+            </summary>
+            <param name="id">The unique GUID of the session to remove.</param>
+            <returns>No content if the deletion was successful.</returns>
+        </member>
         <member name="T:GymManagement.Api.Migrations.InitialWithGuid">
             <inheritdoc />
         </member>

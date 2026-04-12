@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj": {}
+    "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj": {}
   },
   "projects": {
-    "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj": {
+    "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj",
+        "projectUniqueName": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
         "projectName": "GymManagement.Api",
-        "projectPath": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj",
-        "packagesPath": "/Users/vlad/.nuget/packages/",
-        "outputPath": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/",
+        "projectPath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
+        "packagesPath": "C:\\Users\\nulqq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/vlad/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nulqq\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -55,6 +55,10 @@
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
               "version": "[12.1.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.15.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -94,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

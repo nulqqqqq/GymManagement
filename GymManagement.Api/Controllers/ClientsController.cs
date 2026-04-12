@@ -14,9 +14,11 @@ namespace GymManagement.Api.Controllers;
 public class ClientsController : ControllerBase
 {
     private readonly IClientService _clientService;
+    private readonly IEmailService _emailService;
 
-    public ClientsController(IClientService clientService)
+    public ClientsController(IClientService clientService, IEmailService emailService)
     {
+        _emailService = emailService;
         _clientService = clientService;
     }
     
@@ -44,10 +46,12 @@ public class ClientsController : ControllerBase
     public async Task<IActionResult> CreateClient([FromBody] CreateClientDto clientDto)
     {
         var result = await _clientService.CreateClientAsync(clientDto);
+        await _emailService.SendWelcomeEmailAsync(clientDto.Email, clientDto.FirstName);
         return CreatedAtAction(
             nameof(GetClient),
             new { id = result.Id },
             new { message = "Client created succussfully.", Data = result });
+        
     }
     
     /// <summary>

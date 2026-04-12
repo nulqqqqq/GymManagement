@@ -37,6 +37,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateTrainerValidator>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<ITrainerService, TrainerService>();
 builder.Services.AddScoped<IWorkoutSessionService, WorkoutSessionService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
     
 builder.Services.AddDbContext<AppDbContext>(options =>
