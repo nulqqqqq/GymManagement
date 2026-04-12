@@ -51,7 +51,6 @@ public class ClientsController : ControllerBase
             nameof(GetClient),
             new { id = result.Id },
             new { message = "Client created succussfully.", Data = result });
-        
     }
     
     /// <summary>
@@ -111,5 +110,26 @@ public class ClientsController : ControllerBase
         }
 
         return Ok(new { Message = "Client updated successfully", result });
+    }
+    /// <summary>
+    /// Assigns a specific trainer to a client.
+    /// </summary>
+    /// <param name="clientId">The unique GUID of the client.</param>
+    /// <param name="trainerId">The unique GUID of the trainer to assign.</param>
+    /// <returns>No content if the assignment was successful.</returns>
+    /// <response code="204">Trainer successfully assigned to the client.</response>
+    /// <response code="404">Client or Trainer with the specified ID was not found.</response>
+    [HttpPut("{clientId}/assign-trainer/{trainerId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> AssignTrainer(Guid clientid, Guid trainerId)
+    {
+        var result = await _clientService.AssignTrainerAsync(clientid, trainerId);
+        if (!result)
+        {
+            return NotFound(new{Message = "Client or Trainer not found."});
+        }
+        
+        return NoContent();
     }
 }

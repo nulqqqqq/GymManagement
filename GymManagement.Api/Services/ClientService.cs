@@ -83,7 +83,7 @@ public class ClientService : IClientService
         var client = await _context.Clients.FindAsync(id);
         if (client == null) return false;
 
-        _context.Clients.Remove(client);
+        client.IsDeleted = true;
         await _context.SaveChangesAsync();
         return true;
     }
@@ -99,6 +99,19 @@ public class ClientService : IClientService
         
         await _context.SaveChangesAsync();
         
+        return true;
+    }
+
+    public async Task<bool> AssignTrainerAsync(Guid clientId, Guid trainerId)
+    {
+        var client = await _context.Clients.FindAsync(clientId);
+        if (client == null) return false;
+        
+        var trainer = await _context.Trainers.FindAsync(trainerId);
+        if (trainer == null) return false;
+        
+        client.TrainerId = trainerId;
+        await _context.SaveChangesAsync();
         return true;
     }
 }

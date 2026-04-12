@@ -13,4 +13,5 @@ public interface IClientService
     Task<ClientResponseDto> CreateClientAsync(CreateClientDto createClientDto);
     Task<bool> DeleteClientAsync(Guid id);
     Task<bool> UpdateClientAsync(Guid id, UpdateClientDto updateDto);
+    Task<bool>  AssignTrainerAsync(Guid clientId, Guid trainerId);
 }

@@ -71,7 +71,7 @@ public class TrainerService: ITrainerService
     {
         var trainer = await _context.Trainers.FindAsync(id);
         if (trainer == null) return false;
-        _context.Trainers.Remove(trainer);
+        trainer.IsDeleted = true;
         await _context.SaveChangesAsync();
         return true;
     }

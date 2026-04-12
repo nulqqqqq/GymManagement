@@ -103,5 +103,4 @@ public class WorkoutSessionService:IWorkoutSessionService
         await _context.SaveChangesAsync();
         return true;
     }
-    
 }
