@@ -15,9 +15,11 @@ public class ClientsController : ControllerBase
 {
     private readonly IClientService _clientService;
     private readonly IEmailService _emailService;
+    private readonly ILogger<ClientsController> _logger;
 
-    public ClientsController(IClientService clientService, IEmailService emailService)
+    public ClientsController(IClientService clientService, IEmailService emailService,ILogger<ClientsController> logger)
     {
+        _logger = logger;
         _emailService = emailService;
         _clientService = clientService;
     }
@@ -45,8 +47,10 @@ public class ClientsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateClient([FromBody] CreateClientDto clientDto)
     {
+        _logger.LogInformation("Creating new client with email: {Email}",clientDto.Email );
         var result = await _clientService.CreateClientAsync(clientDto);
         await _emailService.SendWelcomeEmailAsync(clientDto.Email, clientDto.FirstName);
+        _logger.LogInformation("Client created successfully with email: {Email}",clientDto.Email);
         return CreatedAtAction(
             nameof(GetClient),
             new { id = result.Id },

@@ -1,0 +1,11 @@
+2026-04-12 18:17:31.143 +03:00 [INF] Now listening on: http://localhost:5230
+2026-04-12 18:17:31.192 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-12 18:17:31.194 +03:00 [INF] Hosting environment: Development
+2026-04-12 18:17:31.196 +03:00 [INF] Content root path: C:\Users\nulqq\RiderProjects\GymManagement\GymManagement.Api
+2026-04-12 18:17:31.587 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-04-12 18:17:31.808 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 200 null text/html;charset=utf-8 234.2933ms
+2026-04-12 18:17:31.839 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-04-12 18:17:31.853 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 200 null application/javascript;charset=utf-8 16.1306ms
+2026-04-12 18:17:32.265 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-04-12 18:17:32.725 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 460.9899ms
+2026-04-12 18:18:42.958 +03:00 [INF] Application is shutting down...
