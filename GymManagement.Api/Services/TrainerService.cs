@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
 using GymManagement.Api.Dtos.Shared;
@@ -11,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymManagement.Api.Services;
 
-public class TrainerService: ITrainerService
+public class TrainerService : ITrainerService
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
@@ -41,7 +38,7 @@ public class TrainerService: ITrainerService
                     : query.OrderBy(t => t.FirstName);
             }
         }
-        
+
         var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
         var trainers = await query
             .Skip(skipAmount)

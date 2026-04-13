@@ -5,14 +5,15 @@ using MimeKit;
 
 namespace GymManagement.Api.Services;
 
-public class EmailService:IEmailService
+public class EmailService : IEmailService
 {
     private readonly IConfiguration _config;
 
-    public EmailService(IConfiguration  config)
+    public EmailService(IConfiguration config)
     {
         _config = config;
     }
+
     public async Task SendWelcomeEmailAsync(string toEmail, string clientName)
     {
         var email = new MimeMessage();
@@ -27,7 +28,7 @@ public class EmailService:IEmailService
                    $"<p>We are thrilled to have you in our gym. Get ready to achieve your goals!</p>" +
                    $"<br><p>Best regards,<br>The Gym Team</p>"
         };
-        
+
         using var smtp = new SmtpClient();
         try
         {
@@ -38,7 +39,7 @@ public class EmailService:IEmailService
             await smtp.AuthenticateAsync(senderEmail, pass);
             await smtp.SendAsync(email);
         }
-       finally
+        finally
         {
             await smtp.DisconnectAsync(true);
         }

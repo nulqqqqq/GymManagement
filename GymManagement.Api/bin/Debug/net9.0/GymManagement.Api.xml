@@ -51,6 +51,11 @@
             <response code="204">Trainer successfully assigned to the client.</response>
             <response code="404">Client or Trainer with the specified ID was not found.</response>
         </member>
+        <member name="M:GymManagement.Api.Controllers.ClientsController.UploadPhoto(System.Guid,Microsoft.AspNetCore.Http.IFormFile,GymManagement.Api.Interfaces.IPhotoService)">
+            <summary>
+            Uploads an avatar photo for a specific client.
+            </summary>
+        </member>
         <member name="M:GymManagement.Api.Controllers.TrainersController.GetTrainers(GymManagement.Api.Dtos.Shared.PaginationQueryDto)">
             <summary>
             Returns a list of all registered gym trainers.
@@ -266,6 +271,18 @@
             <inheritdoc />
         </member>
         <member name="M:GymManagement.Api.Migrations.MakeTrainerIdNullable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GymManagement.Api.Migrations.AddPhotoFields">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhotoFields.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhotoFields.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GymManagement.Api.Migrations.AddPhotoFields.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

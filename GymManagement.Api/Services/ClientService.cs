@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AutoMapper;
 using GymManagement.Api.Data;
 using GymManagement.Api.Dtos;
-using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Interfaces;
 using GymManagement.Api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +9,6 @@ namespace GymManagement.Api.Services;
 
 public class ClientService : IClientService
 {
-    
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
 
@@ -33,28 +28,28 @@ public class ClientService : IClientService
 
         if (!string.IsNullOrWhiteSpace(queryDto.SortColumn))
         {
-            
             if (queryDto.SortColumn.Equals("lastName", StringComparison.OrdinalIgnoreCase))
             {
-                query = queryDto.SortOrder?.ToLower() == "desc" 
-                    ? query.OrderByDescending(c => c.LastName) 
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(c => c.LastName)
                     : query.OrderBy(c => c.LastName);
             }
-            
+
             else if (queryDto.SortColumn.Equals("firstName", StringComparison.OrdinalIgnoreCase))
             {
-                query = queryDto.SortOrder?.ToLower() == "desc" 
-                    ? query.OrderByDescending(c => c.FirstName) 
+                query = queryDto.SortOrder?.ToLower() == "desc"
+                    ? query.OrderByDescending(c => c.FirstName)
                     : query.OrderBy(c => c.FirstName);
             }
         }
+
         var skipAmount = (queryDto.PageNumber - 1) * queryDto.PageSize;
         var clients = await query
             .Skip(skipAmount)
             .Take(queryDto.PageSize)
-            .Include(c => c.Trainer)   
+            .Include(c => c.Trainer)
             .ToListAsync();
-        
+
         return _mapper.Map<IEnumerable<ClientResponseDto>>(clients);
     }
 
@@ -63,7 +58,7 @@ public class ClientService : IClientService
         var client = await _context.Clients
             .Include(c => c.Trainer)
             .FirstOrDefaultAsync(i => i.Id == id);
-        
+
         if (client == null) return null;
         return _mapper.Map<ClientResponseDto>(client);
     }
@@ -90,15 +85,15 @@ public class ClientService : IClientService
 
     public async Task<bool> UpdateClientAsync(Guid id, UpdateClientDto updateDto)
     {
-        if (updateDto.TrainerId != null && !await _context.Trainers.AnyAsync(t => t.Id == updateDto.TrainerId)) 
+        if (updateDto.TrainerId != null && !await _context.Trainers.AnyAsync(t => t.Id == updateDto.TrainerId))
             return false;
         var client = await _context.Clients.FindAsync(id);
-        
+
         if (client == null) return false;
         _mapper.Map(updateDto, client);
-        
+
         await _context.SaveChangesAsync();
-        
+
         return true;
     }
 
@@ -106,12 +101,23 @@ public class ClientService : IClientService
     {
         var client = await _context.Clients.FindAsync(clientId);
         if (client == null) return false;
-        
+
         var trainer = await _context.Trainers.FindAsync(trainerId);
         if (trainer == null) return false;
-        
+
         client.TrainerId = trainerId;
         await _context.SaveChangesAsync();
         return true;
+    }
+
+    public async Task UpdateClientPhotoAsync(Guid id, string photoUrl, string publicId)
+    {
+        var client = await _context.Clients.FindAsync(id);
+        if (client != null)
+        {
+            client.PhotoUrl = photoUrl;
+            client.PublicId = publicId;
+            await _context.SaveChangesAsync();
+        }
     }
 }

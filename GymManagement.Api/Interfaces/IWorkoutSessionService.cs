@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.WorkoutSessions;
 
 namespace GymManagement.Api.Interfaces;

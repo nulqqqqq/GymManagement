@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using GymManagement.Api.Dtos;
-using GymManagement.Api.Dtos.Shared;
 
 namespace GymManagement.Api.Interfaces;
 
@@ -14,4 +10,5 @@ public interface IClientService
     Task<bool> DeleteClientAsync(Guid id);
     Task<bool> UpdateClientAsync(Guid id, UpdateClientDto updateDto);
     Task<bool>  AssignTrainerAsync(Guid clientId, Guid trainerId);
+    public Task UpdateClientPhotoAsync(Guid id, string photoUrl, string publicId);
 }

@@ -13,10 +13,6 @@ public class AppDbContext : DbContext
             .HasQueryFilter(c =>  !c.IsDeleted)
             .HasIndex(c => c.Email)
             .IsUnique();
-        
-
-
-
     }
     public DbSet<Client> Clients { get; set; }
     public DbSet<Trainer> Trainers { get; set; }

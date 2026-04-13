@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using GymManagement.Api.Dtos;
-using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagement.Api.Controllers;
 
@@ -17,46 +12,47 @@ public class ClientsController : ControllerBase
     private readonly IEmailService _emailService;
     private readonly ILogger<ClientsController> _logger;
 
-    public ClientsController(IClientService clientService, IEmailService emailService,ILogger<ClientsController> logger)
+    public ClientsController(IClientService clientService, IEmailService emailService,
+        ILogger<ClientsController> logger)
     {
         _logger = logger;
         _emailService = emailService;
         _clientService = clientService;
     }
-    
+
     /// <summary>
     /// Returns a complete list of all registered gym clients.
     /// </summary>
     /// <returns>A list of clients with their IDs, names, and current plans.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<ClientResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetClients([FromQuery]ClientQueryDto query)
+    public async Task<IActionResult> GetClients([FromQuery] ClientQueryDto query)
     {
         var clients = await _clientService.GetAllClientsAsync(query);
         return Ok(clients);
     }
-    
+
     /// <summary>
     /// Registers a new client in the gym management system.
     /// </summary>
     /// <param name="clientDto">The data required to create a new client profile.</param>
     /// <response code="201">Returns the newly created client with its assigned ID.</response>
     /// <response code="400">If the provided data is invalid (e.g., empty name).</response>
-    [HttpPost] 
+    [HttpPost]
     [ProducesResponseType(typeof(ClientResponseDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateClient([FromBody] CreateClientDto clientDto)
     {
-        _logger.LogInformation("Creating new client with email: {Email}",clientDto.Email );
+        _logger.LogInformation("Creating new client with email: {Email}", clientDto.Email);
         var result = await _clientService.CreateClientAsync(clientDto);
         await _emailService.SendWelcomeEmailAsync(clientDto.Email, clientDto.FirstName);
-        _logger.LogInformation("Client created successfully with email: {Email}",clientDto.Email);
+        _logger.LogInformation("Client created successfully with email: {Email}", clientDto.Email);
         return CreatedAtAction(
             nameof(GetClient),
             new { id = result.Id },
             new { message = "Client created succussfully.", Data = result });
     }
-    
+
     /// <summary>
     /// Retrieves details for a specific client by their unique ID.
     /// </summary>
@@ -73,10 +69,10 @@ public class ClientsController : ControllerBase
         {
             return NotFound(new { Message = $"Client with ID {id} not found." });
         }
-        
+
         return Ok(client);
     }
-    
+
     /// <summary>
     /// Permanently removes a client from the system.
     /// </summary>
@@ -91,9 +87,9 @@ public class ClientsController : ControllerBase
         var deleted = await _clientService.DeleteClientAsync(id);
         if (!deleted)
         {
-            return NotFound(new{Message = $"Client with ID{id} not fount."});
+            return NotFound(new { Message = $"Client with ID{id} not fount." });
         }
-        
+
         return NoContent();
     }
 
@@ -115,6 +111,7 @@ public class ClientsController : ControllerBase
 
         return Ok(new { Message = "Client updated successfully", result });
     }
+
     /// <summary>
     /// Assigns a specific trainer to a client.
     /// </summary>
@@ -131,9 +128,22 @@ public class ClientsController : ControllerBase
         var result = await _clientService.AssignTrainerAsync(clientid, trainerId);
         if (!result)
         {
-            return NotFound(new{Message = "Client or Trainer not found."});
+            return NotFound(new { Message = "Client or Trainer not found." });
         }
-        
+
         return NoContent();
+    }
+
+    /// <summary>
+    /// Uploads an avatar photo for a specific client.
+    /// </summary>
+    [HttpPost("{id}/photo")]
+    public async Task<IActionResult> UploadPhoto(Guid id, IFormFile file, [FromServices] IPhotoService photoService)
+    {
+        var result = await photoService.AddPhotoAsync(file);
+        if (result.Error != null) return BadRequest(result.Error.Message);
+        await _clientService.UpdateClientPhotoAsync(id, result.SecureUrl.AbsoluteUri, result.PublicId);
+
+        return Ok(new { PhotoUrl = result.SecureUrl.AbsoluteUri });
     }
 }

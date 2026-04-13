@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.Trainers;
 using GymManagement.Api.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagement.Api.Controllers;
@@ -19,19 +15,19 @@ public class TrainersController : ControllerBase
     {
         _trainerService = trainerService;
     }
-    
+
     /// <summary>
     /// Returns a list of all registered gym trainers.
     /// </summary>
     /// <returns>A collection of trainer response objects.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<TrainerResponseDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetTrainers([FromQuery]PaginationQueryDto query)
+    public async Task<IActionResult> GetTrainers([FromQuery] PaginationQueryDto query)
     {
         var trainers = await _trainerService.GetAllTrainersAsync(query);
         return Ok(trainers);
     }
-    
+
     /// <summary>
     /// Creates a new trainer profile in the system.
     /// </summary>
@@ -41,10 +37,10 @@ public class TrainersController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(TrainerResponseDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateTrainer([FromBody]CreateTrainerDto trainerDto)
+    public async Task<IActionResult> CreateTrainer([FromBody] CreateTrainerDto trainerDto)
     {
         var result = await _trainerService.CreateTrainerAsync(trainerDto);
-        return CreatedAtAction(nameof(GetTrainers), new { id = result.Id }, 
+        return CreatedAtAction(nameof(GetTrainers), new { id = result.Id },
             new { Message = "Trainer created successfully.", Data = result });
     }
 
@@ -62,11 +58,11 @@ public class TrainersController : ControllerBase
     public async Task<IActionResult> UpdateTrainer(Guid id, UpdateTrainerDto trainerDto)
     {
         var result = await _trainerService.UpdateTrainerAsync(id, trainerDto);
-        if (!result) return NotFound();  
-        
+        if (!result) return NotFound();
+
         return NoContent();
     }
-    
+
     /// <summary>
     /// Deletes a trainer from the system.
     /// </summary>

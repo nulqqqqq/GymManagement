@@ -1,17 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using GymManagement.Api.Dtos.Shared;
 using GymManagement.Api.Dtos.WorkoutSessions;
 using GymManagement.Api.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagement.Api.Controllers;
 
 [Route("api/[controller]")]
-public class WorkoutSessionsController:ControllerBase
+public class WorkoutSessionsController : ControllerBase
 {
     private readonly IWorkoutSessionService _workoutSessionService;
 
@@ -19,7 +13,7 @@ public class WorkoutSessionsController:ControllerBase
     {
         _workoutSessionService = workoutSession;
     }
-    
+
     /// <summary>
     /// Retrieves a list of all workout sessions based on filter criteria.
     /// </summary>
@@ -33,7 +27,7 @@ public class WorkoutSessionsController:ControllerBase
         var workoutSessions = await _workoutSessionService.GetAllWorkoutSessionsAsync(query);
         return Ok(workoutSessions);
     }
-    
+
     /// <summary>
     /// Creates a new workout session.
     /// </summary>
@@ -44,14 +38,14 @@ public class WorkoutSessionsController:ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(WorkoutSessionResponseDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateWorkoutSession([FromBody]CreateWorkoutSessionDto workoutSessionDto)
+    public async Task<IActionResult> CreateWorkoutSession([FromBody] CreateWorkoutSessionDto workoutSessionDto)
     {
         var result = await _workoutSessionService.CreateWorkoutSessionAsync(workoutSessionDto);
         return CreatedAtAction(nameof(GetWorkoutSession),
-            new {id = result.Id},
-            new {Message = "Workout session created successfully", Data = result});
+            new { id = result.Id },
+            new { Message = "Workout session created successfully", Data = result });
     }
-    
+
     /// <summary>
     /// Gets a specific workout session by its unique identifier.
     /// </summary>
@@ -72,6 +66,7 @@ public class WorkoutSessionsController:ControllerBase
 
         return Ok(workoutSession);
     }
+
     /// <summary>
     /// Updates an existing workout session with new information.
     /// </summary>
@@ -81,7 +76,7 @@ public class WorkoutSessionsController:ControllerBase
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateWorkoutSession(Guid id, [FromBody]UpdateWorkoutSessionDto workoutSessionDto)
+    public async Task<IActionResult> UpdateWorkoutSession(Guid id, [FromBody] UpdateWorkoutSessionDto workoutSessionDto)
     {
         var result = await _workoutSessionService.UpdateWorkoutSessionAsync(id, workoutSessionDto);
         if (!result)
@@ -91,6 +86,7 @@ public class WorkoutSessionsController:ControllerBase
 
         return NoContent();
     }
+
     /// <summary>
     /// Removes a workout session from the system.
     /// </summary>
@@ -103,7 +99,7 @@ public class WorkoutSessionsController:ControllerBase
     {
         var result = await _workoutSessionService.DeleteWorkoutSessionAsync(id);
         if (!result) return NotFound();
-        
+
         return NoContent();
     }
 }
