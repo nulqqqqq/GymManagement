@@ -56,6 +56,11 @@
             Uploads an avatar photo for a specific client.
             </summary>
         </member>
+        <member name="M:GymManagement.Api.Controllers.StatsController.GetDashboardStats">
+            <summary>
+            Gets general statistics for the admin dashboard.
+            </summary>
+        </member>
         <member name="M:GymManagement.Api.Controllers.TrainersController.GetTrainers(GymManagement.Api.Dtos.Shared.PaginationQueryDto)">
             <summary>
             Returns a list of all registered gym trainers.
