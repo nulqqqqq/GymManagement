@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HibvZNeCL30=",
+  "dgSpecHash": "gXdhhEzpH1s=",
   "success": true,
   "projectFilePath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nulqq\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\nulqq\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\nulqq\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\nulqq\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\nulqq\\.nuget\\packages\\cloudinarydotnet\\1.28.0\\cloudinarydotnet.1.28.0.nupkg.sha512",
     "C:\\Users\\nulqq\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
@@ -138,5 +139,18 @@
     "C:\\Users\\nulqq\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\nulqq\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'MailKit' 4.15.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr",
+      "projectPath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
+      "libraryId": "MailKit",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
