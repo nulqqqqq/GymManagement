@@ -11,7 +11,7 @@ public class ClientService : IClientService
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
-
+    
     public ClientService(AppDbContext context, IMapper mapper)
     {
         _context = context;
@@ -49,6 +49,7 @@ public class ClientService : IClientService
             .Take(queryDto.PageSize)
             .Include(c => c.Trainer)
             .ToListAsync();
+        
 
         return _mapper.Map<IEnumerable<ClientResponseDto>>(clients);
     }
@@ -69,6 +70,7 @@ public class ClientService : IClientService
 
         _context.Clients.Add(client);
         await _context.SaveChangesAsync();
+        
 
         return _mapper.Map<ClientResponseDto>(client);
     }
@@ -88,7 +90,7 @@ public class ClientService : IClientService
         if (updateDto.TrainerId != null && !await _context.Trainers.AnyAsync(t => t.Id == updateDto.TrainerId))
             return false;
         var client = await _context.Clients.FindAsync(id);
-
+        
         if (client == null) return false;
         _mapper.Map(updateDto, client);
 

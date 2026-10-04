@@ -1,0 +1,8 @@
+Plaintext
+bin/
+obj/
+logs/
+*.user
+*.DotSettings.user
+*.mdf
+*.ldf

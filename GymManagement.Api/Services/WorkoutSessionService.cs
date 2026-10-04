@@ -15,7 +15,7 @@ public class WorkoutSessionService : IWorkoutSessionService
     public WorkoutSessionService(AppDbContext context, IMapper mapper)
     {
         _context = context;
-        _mapper = mapper;
+        _mapper = mapper; 
     }
 
     public async Task<IEnumerable<WorkoutSessionResponseDto>> GetAllWorkoutSessionsAsync(

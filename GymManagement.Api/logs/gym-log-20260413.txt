@@ -128,3 +128,43 @@ LIMIT 1
 2026-04-13 08:57:11.673 +03:00 [INF] HTTP POST /api/clients/019d80bc-8c50-79b6-9dc6-211e3ea4bbed/photo responded 200 in 4111.6193 ms
 2026-04-13 08:57:11.695 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5230/api/clients/019d80bc-8c50-79b6-9dc6-211e3ea4bbed/photo - 200 null application/json; charset=utf-8 4151.0091ms
 2026-04-13 09:00:50.505 +03:00 [INF] Application is shutting down...
+2026-04-13 09:07:48.167 +03:00 [INF] Now listening on: http://localhost:5230
+2026-04-13 09:07:48.238 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-13 09:07:48.239 +03:00 [INF] Hosting environment: Development
+2026-04-13 09:07:48.240 +03:00 [INF] Content root path: /Users/vlad/RiderProjects/GymManagement/GymManagement.Api
+2026-04-13 09:07:51.587 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-04-13 09:07:51.920 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 200 null text/html;charset=utf-8 335.5303ms
+2026-04-13 09:07:51.978 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-04-13 09:07:51.992 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 200 null application/javascript;charset=utf-8 14.4191ms
+2026-04-13 09:07:52.398 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-04-13 09:07:52.441 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - null null
+2026-04-13 09:07:52.441 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/favicon.ico - null null
+2026-04-13 09:07:52.441 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - null null
+2026-04-13 09:07:52.465 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - null null
+2026-04-13 09:07:52.481 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - null null
+2026-04-13 09:07:52.852 +03:00 [INF] HTTP GET /apple-touch-icon-precomposed.png responded 404 in 89.6822 ms
+2026-04-13 09:07:52.945 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - 404 0 null 503.3712ms
+2026-04-13 09:07:52.968 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon-precomposed.png, Response status code: 404
+2026-04-13 09:07:52.845 +03:00 [INF] HTTP GET /favicon.ico responded 404 in 88.4549 ms
+2026-04-13 09:07:52.885 +03:00 [INF] HTTP GET /apple-touch-icon.png responded 404 in 211.7645 ms
+2026-04-13 09:07:52.964 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-04-13 09:07:52.981 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/favicon.ico - 404 0 null 539.4176ms
+2026-04-13 09:07:52.979 +03:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-04-13 09:07:53.000 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/favicon.ico, Response status code: 404
+2026-04-13 09:07:52.996 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - 200 628 image/png 515.1934ms
+2026-04-13 09:07:52.994 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - 404 0 null 552.3662ms
+2026-04-13 09:07:53.048 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon.png, Response status code: 404
+2026-04-13 09:07:53.003 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - 200 665 image/png 538.5388ms
+2026-04-13 09:07:53.344 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - null null
+2026-04-13 09:07:53.345 +03:00 [INF] HTTP GET /apple-touch-icon-precomposed.png responded 404 in 0.0262 ms
+2026-04-13 09:07:53.345 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - 404 0 null 0.8462ms
+2026-04-13 09:07:53.345 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon-precomposed.png, Response status code: 404
+2026-04-13 09:07:53.377 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - null null
+2026-04-13 09:07:53.378 +03:00 [INF] HTTP GET /apple-touch-icon.png responded 404 in 0.0315 ms
+2026-04-13 09:07:53.379 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - 404 0 null 1.325ms
+2026-04-13 09:07:53.380 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon.png, Response status code: 404
+2026-04-13 09:07:53.400 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - null null
+2026-04-13 09:07:53.401 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-04-13 09:07:53.401 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - 200 628 image/png 1.0783ms
+2026-04-13 09:07:53.584 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1186.3068ms
+2026-04-13 09:08:02.414 +03:00 [INF] Application is shutting down...

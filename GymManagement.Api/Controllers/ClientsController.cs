@@ -123,9 +123,9 @@ public class ClientsController : ControllerBase
     [HttpPut("{clientId}/assign-trainer/{trainerId}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> AssignTrainer(Guid clientid, Guid trainerId)
+    public async Task<IActionResult> AssignTrainer(Guid clientId, Guid trainerId)
     {
-        var result = await _clientService.AssignTrainerAsync(clientid, trainerId);
+        var result = await _clientService.AssignTrainerAsync(clientId, trainerId);
         if (!result)
         {
             return NotFound(new { Message = "Client or Trainer not found." });

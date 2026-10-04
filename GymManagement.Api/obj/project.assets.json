@@ -7821,19 +7821,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nulqq\\.nuget\\packages\\": {}
+    "/Users/vlad/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
+      "projectUniqueName": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj",
       "projectName": "GymManagement.Api",
-      "projectPath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\GymManagement.Api.csproj",
-      "packagesPath": "C:\\Users\\nulqq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nulqq\\RiderProjects\\GymManagement\\GymManagement.Api\\obj\\",
+      "projectPath": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/GymManagement.Api.csproj",
+      "packagesPath": "/Users/vlad/.nuget/packages/",
+      "outputPath": "/Users/vlad/RiderProjects/GymManagement/GymManagement.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nulqq\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/vlad/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -7857,7 +7857,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -7941,7 +7941,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

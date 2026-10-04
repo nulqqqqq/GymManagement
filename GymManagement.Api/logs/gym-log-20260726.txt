@@ -1,0 +1,62 @@
+2026-07-26 01:07:59.241 +04:00 [INF] User profile is available. Using '/Users/vlad/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-07-26 01:07:59.333 +04:00 [INF] Now listening on: http://localhost:5230
+2026-07-26 01:07:59.335 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-26 01:07:59.335 +04:00 [INF] Hosting environment: Development
+2026-07-26 01:07:59.335 +04:00 [INF] Content root path: /Users/vlad/RiderProjects/GymManagement/GymManagement.Api
+2026-07-26 01:08:01.555 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-07-26 01:08:01.756 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 200 null text/html;charset=utf-8 201.8676ms
+2026-07-26 01:08:01.767 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.css - null null
+2026-07-26 01:08:01.782 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - null null
+2026-07-26 01:08:01.783 +04:00 [INF] The file /index.css was not modified
+2026-07-26 01:08:01.785 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.css - 304 null text/css 19.2099ms
+2026-07-26 01:08:01.786 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - null null
+2026-07-26 01:08:01.786 +04:00 [INF] The file /swagger-ui-bundle.js was not modified
+2026-07-26 01:08:01.787 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - 304 null text/javascript 0.8682ms
+2026-07-26 01:08:01.783 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - null null
+2026-07-26 01:08:01.789 +04:00 [INF] The file /swagger-ui.css was not modified
+2026-07-26 01:08:01.789 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - 304 null text/css 6.0375ms
+2026-07-26 01:08:01.785 +04:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2026-07-26 01:08:01.797 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 15.7237ms
+2026-07-26 01:08:01.805 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - null null
+2026-07-26 01:08:01.806 +04:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2026-07-26 01:08:01.806 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 0.7664ms
+2026-07-26 01:08:01.809 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-07-26 01:08:01.835 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 200 null application/javascript;charset=utf-8 25.5514ms
+2026-07-26 01:08:02.006 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - null null
+2026-07-26 01:08:02.019 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-07-26 01:08:02.019 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - null null
+2026-07-26 01:08:02.019 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - null null
+2026-07-26 01:08:02.020 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/favicon.ico - null null
+2026-07-26 01:08:02.035 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - null null
+2026-07-26 01:08:02.043 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - null null
+2026-07-26 01:08:02.044 +04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-07-26 01:08:02.045 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-26 01:08:02.048 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - 200 628 image/png 5.007ms
+2026-07-26 01:08:02.045 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - 200 665 image/png 11.1518ms
+2026-07-26 01:08:02.086 +04:00 [INF] HTTP GET /apple-touch-icon-precomposed.png responded 404 in 74.5078 ms
+2026-07-26 01:08:02.086 +04:00 [INF] HTTP GET /favicon.ico responded 404 in 62.7539 ms
+2026-07-26 01:08:02.086 +04:00 [INF] HTTP GET /apple-touch-icon.png responded 404 in 62.9463 ms
+2026-07-26 01:08:02.086 +04:00 [INF] HTTP GET /apple-touch-icon-precomposed.png responded 404 in 63.2000 ms
+2026-07-26 01:08:02.088 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - 404 0 null 67.66ms
+2026-07-26 01:08:02.090 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon-precomposed.png, Response status code: 404
+2026-07-26 01:08:02.086 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon-precomposed.png - 404 0 null 80.3854ms
+2026-07-26 01:08:02.106 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon-precomposed.png, Response status code: 404
+2026-07-26 01:08:02.086 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/favicon.ico - 404 0 null 65.7702ms
+2026-07-26 01:08:02.109 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/favicon.ico, Response status code: 404
+2026-07-26 01:08:02.086 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - 404 0 null 67.0436ms
+2026-07-26 01:08:02.115 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon.png, Response status code: 404
+2026-07-26 01:08:02.118 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - null null
+2026-07-26 01:08:02.125 +04:00 [INF] HTTP GET /apple-touch-icon.png responded 404 in 3.3150 ms
+2026-07-26 01:08:02.125 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/apple-touch-icon.png - 404 0 null 6.7742ms
+2026-07-26 01:08:02.127 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/apple-touch-icon.png, Response status code: 404
+2026-07-26 01:08:02.132 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - null null
+2026-07-26 01:08:02.134 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-26 01:08:02.134 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - 200 628 image/png 1.7921ms
+2026-07-26 01:08:02.170 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - null null
+2026-07-26 01:08:02.170 +04:00 [INF] The file /favicon-32x32.png was not modified
+2026-07-26 01:08:02.171 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-32x32.png - 304 null image/png 0.6602ms
+2026-07-26 01:08:02.171 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - null null
+2026-07-26 01:08:02.171 +04:00 [INF] The file /favicon-16x16.png was not modified
+2026-07-26 01:08:02.196 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/favicon-16x16.png - 304 null image/png 0.2171ms
+2026-07-26 01:08:02.222 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 202.8349ms
+2026-07-26 01:08:12.296 +04:00 [INF] Application is shutting down...
