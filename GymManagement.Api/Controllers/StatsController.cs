@@ -24,7 +24,7 @@ namespace GymManagement.Api.Controllers
         {
             var stats = await _statsService.GetDashboardStatsAsync();
             
-            return Ok(stats); 
+            return Ok(stats);
         }
     }
 }

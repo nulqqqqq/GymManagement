@@ -98,6 +98,6 @@ public class WorkoutSessionService : IWorkoutSessionService
         if (workoutSession == null) return false;
         _context.WorkoutSessions.Remove(workoutSession);
         await _context.SaveChangesAsync();
-        return true;
+        return true;    
     }
 }

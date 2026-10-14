@@ -80,10 +80,7 @@ public class WorkoutSessionsController : ControllerBase
     public async Task<IActionResult> UpdateWorkoutSession(Guid id, [FromBody] UpdateWorkoutSessionDto workoutSessionDto)
     {
         var result = await _workoutSessionService.UpdateWorkoutSessionAsync(id, workoutSessionDto);
-        if (!result)
-        {
-            return NotFound();
-        }
+        if (!result) return NotFound();
 
         return NoContent();
     }
